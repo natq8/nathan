@@ -8,63 +8,149 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #003087;
+            color: white;
+            padding: 15px;
             text-align: center;
-            padding: 20px;
+        }
+        header img {
+            vertical-align: middle;
         }
         .container {
-            background: #fff;
-            border-radius: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 30px;
+            max-width: 600px;
+            margin: 20px auto;
         }
-        h1 {
-            color: #ff6f61;
-            font-size: 2.5em;
+        h2 {
+            color: #0070ba;
         }
-        p {
-            font-size: 1.2em;
-            color: #333;
-        }
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            color: #ff6f61;
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin-bottom: 20px;
         }
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
         button {
-            background-color: #ff6f61;
+            background-color: #0070ba;
             color: white;
             border: none;
             padding: 10px 20px;
-            font-size: 1em;
             border-radius: 5px;
             cursor: pointer;
-            margin: 10px;
         }
         button:hover {
-            background-color: #e55c50;
+            background-color: #005c99;
         }
-        .disclaimer {
-            font-size: 0.9em;
-            color: #777;
+        footer {
+            background-color: #003087;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        #spinner {
+            display: none;
+            text-align: center;
             margin-top: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .spinner-icon {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0070ba;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: auto;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <img src="https://via.placeholder.com/100x40?text=PrankPal" alt="PrankPal Logo">
+        <span style="margin-left: 20px; font-size: 1.2em;">Welcome, User!</span>
+    </header>
+
+    <!-- Main Content -->
     <div class="container">
-        <div class="logo">PrankPal</div>
-        <h1>Congratulations!</h1>
-        <p>You've just received <strong>$1,000,000,000,000</strong> (One Trillion Dollars)!</p>
-        <p>That's enough money to buy every pizza in the world... twice!</p>
-        <button onclick="alert('Nice try, but this is fake! 😂')">Claim My Money</button>
-        <button onclick="alert('Even more fake money incoming! 🤑')">Send Me More Fake Money</button>
-        <button onclick="alert('Unicorns approve! 🦄')">Donate to the Unicorn Fund</button>
-        <div class="disclaimer">
-            Disclaimer: This is not real. It’s just a harmless prank from PrankPal. No actual money was harmed in the making of this joke.
+        <h2>Transaction Details</h2>
+        <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+            <p><strong>Amount:</strong> $1,000,000,000,000.00</p>
+            <p><strong>From:</strong> PrankPal Rewards</p>
+            <p><strong>To:</strong> Your Account</p>
+            <p><strong>Date:</strong> October 20, 2023</p>
         </div>
+        <button onclick="showSpinner()">Claim Funds</button>
+
+        <!-- Loading Spinner -->
+        <div id="spinner">
+            <div class="spinner-icon"></div>
+            <p>Loading...</p>
+        </div>
+
+        <!-- Recent Transactions Table -->
+        <h3>Recent Transactions</h3>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>Oct 20, 2023</td>
+                <td>PrankPal Rewards</td>
+                <td style="color: green;">+$1,000,000,000,000.00</td>
+            </tr>
+            <tr>
+                <td>Oct 19, 2023</td>
+                <td>Pizza Purchase</td>
+                <td style="color: red;">-$15.00</td>
+            </tr>
+        </table>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2023 PrankPal. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Disclaimer -->
+    <p style="font-size: 0.9em; color: #777; text-align: center; margin-top: 20px;">
+        Disclaimer: This is not a real payment platform. It’s just a harmless prank created by PrankPal.
+    </p>
+
+    <!-- JavaScript for Spinner -->
+    <script>
+        function showSpinner() {
+            document.getElementById('spinner').style.display = 'block';
+            setTimeout(() => alert('JK, this is fake! 😂'), 3000);
+        }
+    </script>
 </body>
 </html>
